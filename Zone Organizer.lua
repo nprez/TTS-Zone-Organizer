@@ -18,7 +18,7 @@ function createButtons()
         font_size=50
     })
     self.createButton({
-        label='❌✖',
+        label='✖',
         click_function='cleanupZone',
         function_owner=self,
         position={-0.2,1,-0.55},
