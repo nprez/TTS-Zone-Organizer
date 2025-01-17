@@ -5,25 +5,20 @@ function onload()
     createButtons()
 end
 
+function onDestroy()
+    if zone ~= self then
+        destroyObject(zone)
+    end
+end
+
 function createButtons()
     self.createButton({
         label='✔',
         click_function='doLayout',
         function_owner=self,
-        position={0.2,1,-0.55},
+        position={0,1,-0.55},
         rotation={0,180,0},
         color={r=0, g=64, b=0},
-        width=100,
-        height=50,
-        font_size=50
-    })
-    self.createButton({
-        label='✖',
-        click_function='cleanupZone',
-        function_owner=self,
-        position={-0.2,1,-0.55},
-        rotation={0,180,0},
-        color={r=64, g=0, b=0},
         width=100,
         height=50,
         font_size=50
@@ -48,11 +43,6 @@ function updateZone()
     zone.setScale({scale.x, scale.y+3, scale.z*2})
     zone.setPosition({pos.x, pos.y+1, pos.z})
     zone.setRotation(self.getRotation())
-end
-
-function cleanupZone()
-    destroyObject(zone)
-    zoneSetup = false
 end
 
 function setupZone()
