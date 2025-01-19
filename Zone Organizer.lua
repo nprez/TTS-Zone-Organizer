@@ -50,7 +50,7 @@ function setupZone()
         trigger_for_face_up=true,
         trigger_for_face_down=true,
         trigger_for_non_cards=false,
-        split_added_decks=false,
+        split_added_decks=true,
         combine_into_decks=false,
         cards_per_deck=0,
         direction=1,
