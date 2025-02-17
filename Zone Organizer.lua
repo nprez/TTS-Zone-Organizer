@@ -13,15 +13,16 @@ end
 
 function createButtons()
     self.createButton({
-        label='✔',
+        label='Layout',
         click_function='doLayout',
         function_owner=self,
         position={0,1,-0.55},
         rotation={0,180,0},
+        scale={0.5,0.5,0.25},
         color={r=0, g=64, b=0},
-        width=100,
-        height=50,
-        font_size=50
+        width=800,
+        height=100,
+        font_size=100
     })
 end
 
