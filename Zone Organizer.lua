@@ -41,7 +41,7 @@ function createButtons()
     })
 end
 
-function doLayout(obj, color)
+function doLayout()
     updateZone()
     Wait.frames(function() zone.LayoutZone.layout() end, 5)
 end
