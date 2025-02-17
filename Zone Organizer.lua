@@ -1,3 +1,5 @@
+--note: when making changes to this zone, often an extra zone is created. make sure to delete it
+
 local zone = self
 local zoneSetup = false
 
@@ -8,6 +10,19 @@ end
 function onDestroy()
     if zone ~= self then
         destroyObject(zone)
+    end
+end
+
+function onCollisionEnter(collision_info)
+    if not zoneSetup then
+        doLayout()
+    end
+end
+
+function onPickUp()
+    if zone ~= self then
+        destroyObject(zone)
+        zoneSetup = false
     end
 end
 
@@ -37,7 +52,7 @@ function updateZone()
     
     if not zoneSetup then
         zone = spawnObject({ type="LayoutZone" })
-        Wait.frames(setupZone, 5)
+        Wait.frames(configureZone, 5)
         zoneSetup = true
     end
     
@@ -46,7 +61,7 @@ function updateZone()
     zone.setRotation(self.getRotation())
 end
 
-function setupZone()
+function configureZone()
     zone.LayoutZone.setOptions({
         trigger_for_face_up=true,
         trigger_for_face_down=true,
