@@ -1,4 +1,4 @@
---note: when making changes to this zone, often an extra zone is created. make sure to delete it
+--note: when making changes to this code, delete the zone before overwriting the save file
 
 local zone = self
 local zoneSetup = false
@@ -43,7 +43,7 @@ end
 
 function doLayout()
     updateZone()
-    Wait.frames(function() zone.LayoutZone.layout() end, 5)
+    Wait.frames(function() zone.LayoutZone.layout() end, 10)
 end
 
 function updateZone()
